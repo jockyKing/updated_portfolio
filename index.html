@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ace | Data Analytics Portfolio</title>
+  <meta name="description" content="Data analytics portfolio for Ace, showcasing skills in Excel, SQL, Power BI, Tableau, and data visualization projects." />
+  <meta property="og:title" content="Ace | Data Analytics Portfolio" />
+  <meta property="og:description" content="Data analytics portfolio for Ace, showcasing skills in Excel, SQL, Power BI, Tableau, and data visualization projects." />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- BACKGROUND CANVAS (Drafting Grid + Ambient Trendlines) -->
+  <canvas id="bg-canvas" class="bg-canvas" aria-hidden="true"></canvas>
+
+  <!-- TOP NAVIGATION -->
+  <header class="site-header">
+    <div class="container nav-inner">
+      <a href="#" class="nav-logo">Ace<span>.</span></a>
+
+      <div class="nav-right">
+        <nav class="nav-links" id="nav-links" aria-label="Primary">
+          <a href="#about">About</a>
+          <a href="#skills">Skills</a>
+          <a href="#projects">Projects</a>
+          <a href="#certifications">Certifications</a>
+          <a href="#contact" class="nav-cta">Contact</a>
+        </nav>
+
+        <button
+          type="button"
+          class="cv-print-btn"
+          id="cv-print-btn"
+          aria-label="Generate and print CV"
+          title="Print / Save CV"
+        >
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M6 9V2h12v7"/>
+            <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/>
+            <rect width="12" height="8" x="6" y="14"/>
+          </svg>
+        </button>
+
+        <button
+          class="nav-toggle"
+          id="nav-toggle"
+          type="button"
+          aria-label="Toggle navigation menu"
+          aria-expanded="false"
+          aria-controls="nav-links"
+        >
+          <span class="nav-toggle-bar"></span>
+          <span class="nav-toggle-bar"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">Data Analytics Portfolio · Bulacan State University</p>
+          <h1>Turning messy data into clear, actionable decisions.</h1>
+          <p class="hero-lead">
+            I am Ace, a data analytics student focused on cleaning raw datasets, querying patterns in SQL, and translating findings into plain-language dashboards.
+          </p>
+          <div class="hero-actions">
+            <a href="#projects" class="btn-primary">View Selected Work</a>
+            <a href="#contact" class="btn-secondary">Get in Touch</a>
+          </div>
+        </div>
+
+        <aside class="hero-ledger" aria-label="Analyst overview">
+          <div class="ledger-header">
+            <span class="ledger-label">Profile Summary</span>
+            <span class="ledger-year">2026</span>
+          </div>
+
+          <div class="ledger-chart" aria-hidden="true">
+            <svg viewBox="0 0 320 96" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <line class="chart-grid-line" x1="0" y1="24" x2="320" y2="24" stroke-dasharray="3 3" />
+              <line class="chart-grid-line" x1="0" y1="54" x2="320" y2="54" stroke-dasharray="3 3" />
+              <line class="chart-grid-line" x1="0" y1="84" x2="320" y2="84" />
+              <path
+                class="chart-line"
+                d="M8 76 C 48 72, 64 52, 98 56 C 132 60, 148 34, 186 38 C 224 42, 248 18, 312 12"
+                stroke-width="2"
+                stroke-linecap="round"
+              />
+              <circle class="chart-node" cx="98" cy="56" r="3.5" stroke-width="2" />
+              <circle class="chart-node" cx="186" cy="38" r="3.5" stroke-width="2" />
+              <circle class="chart-node-end" cx="312" cy="12" r="4" />
+            </svg>
+          </div>
+
+          <dl class="ledger-rows">
+            <div class="ledger-row">
+              <dt>Focus</dt>
+              <dd>BI Dashboards &amp; SQL</dd>
+            </div>
+            <div class="ledger-row">
+              <dt>Core Stack</dt>
+              <dd>Excel, SQL, Power BI, Tableau</dd>
+            </div>
+            <div class="ledger-row">
+              <dt>Currently Learning</dt>
+              <dd>Python for Data Analysis</dd>
+            </div>
+            <div class="ledger-row">
+              <dt>Availability</dt>
+              <dd>Entry-Level Analyst Roles</dd>
+            </div>
+          </dl>
+        </aside>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="section-block">
+      <div class="container editorial-split">
+        <div class="section-heading">
+          <span class="section-index">01.</span>
+          <h2>About Me</h2>
+        </div>
+        <div class="about-content">
+          <p class="prose-lead">
+            I'm a data analytics student at Bulacan State University who enjoys finding meaningful patterns in raw data and explaining them in plain language.
+          </p>
+          <p class="prose-body">
+            Whether working with spreadsheets, relational queries, or executive dashboards, my goal is to bridge technical analysis and practical decision-making. After graduation, I'm looking for an entry-level data analyst role where I can help teams answer clearer questions and act with confidence.
+          </p>
+          <div class="about-facts">
+            <div class="fact-item">
+              <span class="fact-label">Institution</span>
+              <span class="fact-value">Bulacan State University</span>
+            </div>
+            <div class="fact-item">
+              <span class="fact-label">Discipline</span>
+              <span class="fact-value">Data Analytics</span>
+            </div>
+            <div class="fact-item">
+              <span class="fact-label">Location</span>
+              <span class="fact-value">Bulacan, Philippines</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills" class="section-block">
+      <div class="container">
+        <div class="section-header-row">
+          <div class="section-heading">
+            <span class="section-index">02.</span>
+            <h2>Skills &amp; Tools</h2>
+          </div>
+          <p class="section-subnote">Organized across data preparation, querying, and visual storytelling.</p>
+        </div>
+
+        <div class="skills-columns">
+          <div class="skill-group">
+            <h3>Querying &amp; Spreadsheets</h3>
+            <ul class="skill-list">
+              <li>
+                <span class="skill-name">SQL</span>
+                <span class="skill-detail">Joins, aggregations, cohort queries</span>
+              </li>
+              <li>
+                <span class="skill-name">Excel</span>
+                <span class="skill-detail">Pivot tables, lookups, KPI modeling</span>
+              </li>
+              <li>
+                <span class="skill-name">Google Sheets</span>
+                <span class="skill-detail">Collaborative tracking &amp; formulas</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="skill-group">
+            <h3>BI &amp; Visualization</h3>
+            <ul class="skill-list">
+              <li>
+                <span class="skill-name">Power BI</span>
+                <span class="skill-detail">Interactive executive dashboards</span>
+              </li>
+              <li>
+                <span class="skill-name">Tableau</span>
+                <span class="skill-detail">Exploratory visual narratives</span>
+              </li>
+              <li>
+                <span class="skill-name">Data Visualization</span>
+                <span class="skill-detail">Chart selection &amp; layout clarity</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="skill-group">
+            <h3>Workflow &amp; Growth</h3>
+            <ul class="skill-list">
+              <li>
+                <span class="skill-name">Data Cleaning</span>
+                <span class="skill-detail">Deduplication, formatting, validation</span>
+              </li>
+              <li>
+                <span class="skill-name">Python</span>
+                <span class="skill-detail">Currently learning for automation</span>
+              </li>
+              <li>
+                <span class="skill-name">Plain-Language Reporting</span>
+                <span class="skill-detail">Summarizing insights for stakeholders</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="section-block">
+      <div class="container">
+        <div class="projects-header">
+          <div class="section-heading">
+            <span class="section-index">03.</span>
+            <h2>Selected Projects</h2>
+          </div>
+
+          <div class="filter-bar" role="group" aria-label="Filter projects by tool">
+            <button type="button" class="filter-btn active" data-filter="all">All</button>
+            <button type="button" class="filter-btn" data-filter="excel">Excel</button>
+            <button type="button" class="filter-btn" data-filter="sql">SQL</button>
+            <button type="button" class="filter-btn" data-filter="dashboards">Dashboards</button>
+          </div>
+        </div>
+
+        <div class="projects-grid" id="projects-grid">
+          <article class="project-card" data-category="excel dashboards">
+            <div class="project-meta">
+              <span>01</span>
+              <span aria-hidden="true">·</span>
+              <span>Excel</span>
+              <span aria-hidden="true">·</span>
+              <span>Business Analysis</span>
+            </div>
+            <h3>Sales Performance Analysis</h3>
+            <p>
+              Analyzed a retail sales dataset to find which products and regions drive the most profit, and summarized the findings in an interactive dashboard.
+            </p>
+            <div class="project-footer">
+              <span class="project-tools">Excel / Dashboards</span>
+              <button type="button" class="project-link" data-project="sales">
+                Read Case Study <span aria-hidden="true">→</span>
+              </button>
+            </div>
+          </article>
+
+          <article class="project-card" data-category="sql">
+            <div class="project-meta">
+              <span>02</span>
+              <span aria-hidden="true">·</span>
+              <span>SQL</span>
+              <span aria-hidden="true">·</span>
+              <span>Retention Analytics</span>
+            </div>
+            <h3>Customer Churn Insights</h3>
+            <p>
+              Explored customer behavior data to identify the main factors linked to customers leaving, and proposed targeted retention strategies.
+            </p>
+            <div class="project-footer">
+              <span class="project-tools">SQL / Data Cleaning</span>
+              <button type="button" class="project-link" data-project="churn">
+                Read Case Study <span aria-hidden="true">→</span>
+              </button>
+            </div>
+          </article>
+
+          <article class="project-card" data-category="dashboards">
+            <div class="project-meta">
+              <span>03</span>
+              <span aria-hidden="true">·</span>
+              <span>Power BI</span>
+              <span aria-hidden="true">·</span>
+              <span>Operations KPI</span>
+            </div>
+            <h3>Regional Revenue &amp; Margin Tracker</h3>
+            <p>
+              Built a multi-page BI report comparing monthly sales velocity against regional targets to spotlight underperforming product lines.
+            </p>
+            <div class="project-footer">
+              <span class="project-tools">Power BI / Tableau</span>
+              <button type="button" class="project-link" data-project="regional">
+                Read Case Study <span aria-hidden="true">→</span>
+              </button>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CERTIFICATIONS -->
+    <section id="certifications" class="section-block">
+      <div class="container">
+        <div class="section-header-row">
+          <div class="section-heading">
+            <span class="section-index">04.</span>
+            <h2>Certifications</h2>
+          </div>
+          <p class="section-subnote">Coursework and credentials in data analytics and visualization.</p>
+        </div>
+
+        <div class="cert-grid">
+          <!-- EDIT: replace with your actual certification details -->
+          <article class="cert-card">
+            <div class="cert-meta">
+              <span>Coursera · Placeholder</span>
+              <span aria-hidden="true">·</span>
+              <span>2026</span>
+            </div>
+            <h3>Google Data Analytics Professional Certificate</h3>
+            <p>
+              Covers data cleaning, spreadsheet analysis, SQL querying, and building visual dashboards for stakeholder reporting.
+            </p>
+            <div class="cert-footer">
+              <span class="cert-id">Credential ID: Pending</span>
+            </div>
+          </article>
+
+          <!-- EDIT: replace with your actual certification details -->
+          <article class="cert-card">
+            <div class="cert-meta">
+              <span>Platform Name · Placeholder</span>
+              <span aria-hidden="true">·</span>
+              <span>2026</span>
+            </div>
+            <h3>SQL for Data Analysis</h3>
+            <p>
+              Relational database querying with joins, CTEs, aggregations, and cohort segmentation on business datasets.
+            </p>
+            <div class="cert-footer">
+              <span class="cert-id">Credential ID: Pending</span>
+            </div>
+          </article>
+
+          <!-- EDIT: replace with your actual certification details -->
+          <article class="cert-card">
+            <div class="cert-meta">
+              <span>Platform Name · Placeholder</span>
+              <span aria-hidden="true">·</span>
+              <span>2026</span>
+            </div>
+            <h3>Business Intelligence &amp; Dashboarding</h3>
+            <p>
+              Data modeling, KPI design, and interactive report building in Power BI and Tableau.
+            </p>
+            <div class="cert-footer">
+              <span class="cert-id">Credential ID: Pending</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="section-block section-contact">
+      <div class="container editorial-split">
+        <div class="section-heading">
+          <span class="section-index">05.</span>
+          <h2>Contact</h2>
+        </div>
+
+        <div class="contact-content">
+          <p class="prose-lead">
+            Open to entry-level data analyst roles, internships, and collaborative data projects.
+          </p>
+
+          <div class="contact-rows">
+            <div class="contact-row">
+              <span class="contact-label">Email</span>
+              <div class="contact-value-group">
+                <a href="mailto:cabatañajockyking.1022@gmail.com" class="contact-link">
+                  cabatañajockyking.1022@gmail.com
+                </a>
+                <button
+                  type="button"
+                  class="copy-btn"
+                  id="copy-email-btn"
+                  data-email="cabatañajockyking.1022@gmail.com"
+                >
+                  Copy
+                </button>
+              </div>
+            </div>
+
+            <div class="contact-row">
+              <span class="contact-label">GitHub</span>
+              <a href="https://github.com/jockyKing" target="_blank" rel="noopener noreferrer" class="contact-link">
+                github.com/jockyKing <span aria-hidden="true">↗</span>
+              </a>
+            </div>
+
+            <div class="contact-row">
+              <span class="contact-label">Education</span>
+              <span class="contact-static">Bulacan State University</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>&copy; 2026 Ace. Data Analytics Portfolio.</p>
+    </div>
+  </footer>
+
+  <!-- FLOATING BACK TO TOP -->
+  <button
+    type="button"
+    class="scroll-top-btn"
+    id="scroll-top-btn"
+    aria-label="Back to top"
+    title="Back to top"
+  >
+    <span aria-hidden="true">↑</span>
+  </button>
+
+  <!-- CASE STUDY MODAL -->
+  <div class="modal-backdrop" id="project-modal" hidden>
+    <div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <div class="modal-top">
+        <span class="modal-meta" id="modal-meta"></span>
+        <button type="button" class="modal-close" id="modal-close" aria-label="Close case study">
+          ✕
+        </button>
+      </div>
+      <h3 class="modal-title" id="modal-title"></h3>
+      <p class="modal-summary" id="modal-summary"></p>
+
+      <div class="modal-sections">
+        <div class="modal-block">
+          <h4>Business Question</h4>
+          <p id="modal-question"></p>
+        </div>
+        <div class="modal-block">
+          <h4>Approach &amp; Tools</h4>
+          <p id="modal-approach"></p>
+        </div>
+        <div class="modal-block">
+          <h4>Key Findings</h4>
+          <ul id="modal-findings"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CV PREVIEW & PRINT MODAL -->
+  <div class="modal-backdrop cv-modal-backdrop" id="cv-modal" hidden>
+    <div class="cv-modal-shell" role="dialog" aria-modal="true" aria-labelledby="cv-modal-heading">
+      <div class="cv-modal-toolbar">
+        <span class="cv-modal-label" id="cv-modal-heading">Curriculum Vitae Preview</span>
+        <div class="cv-modal-actions">
+          <button type="button" class="cv-action-print" id="cv-trigger-print">
+            Print / Save PDF
+          </button>
+          <button type="button" class="modal-close" id="cv-modal-close" aria-label="Close CV preview">
+            ✕
+          </button>
+        </div>
+      </div>
+
+      <article class="cv-sheet" id="cv-sheet">
+        <header class="cv-header">
+          <div>
+            <h2 class="cv-name">Ace</h2>
+            <p class="cv-role">Data Analytics Student · Aspiring Entry-Level Data Analyst</p>
+          </div>
+          <div class="cv-contact-list">
+            <span>cabatañajockyking.1022@gmail.com</span>
+            <span>github.com/jockyKing</span>
+            <span>Bulacan, Philippines</span>
+          </div>
+        </header>
+
+        <section class="cv-section">
+          <h3>Profile</h3>
+          <p>
+            Data analytics student at Bulacan State University focused on cleaning raw datasets, querying patterns in SQL, and translating analytical findings into plain-language dashboards for practical business decisions. Seeking an entry-level data analyst role after graduation.
+          </p>
+        </section>
+
+        <section class="cv-section">
+          <h3>Education</h3>
+          <div class="cv-entry">
+            <div class="cv-entry-row">
+              <strong>Bulacan State University</strong>
+              <span>Bulacan, Philippines</span>
+            </div>
+            <p class="cv-entry-sub">Data Analytics (Student)</p>
+          </div>
+        </section>
+
+        <section class="cv-section">
+          <h3>Skills &amp; Tools</h3>
+          <div class="cv-skills-grid">
+            <div>
+              <strong>Querying &amp; Spreadsheets:</strong>
+              <span>SQL (joins, aggregations, cohort queries), Excel (Pivot Tables, lookups, KPI modeling), Google Sheets</span>
+            </div>
+            <div>
+              <strong>BI &amp; Visualization:</strong>
+              <span>Power BI, Tableau, Data Visualization, Plain-Language Reporting</span>
+            </div>
+            <div>
+              <strong>Workflow &amp; Growth:</strong>
+              <span>Data Cleaning (deduplication, formatting, validation), Python (learning)</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="cv-section">
+          <h3>Selected Analytics Projects</h3>
+
+          <div class="cv-entry">
+            <div class="cv-entry-row">
+              <strong>Sales Performance Analysis</strong>
+              <span>Excel · Business Analysis</span>
+            </div>
+            <p>
+              Cleaned raw retail sales data and built dynamic Pivot Table KPI dashboards to identify profit-driving products, regional performance, and margin impact from promotional discounting.
+            </p>
+          </div>
+
+          <div class="cv-entry">
+            <div class="cv-entry-row">
+              <strong>Customer Churn Insights</strong>
+              <span>SQL · Retention Analytics</span>
+            </div>
+            <p>
+              Wrote SQL queries using joins, CTEs, and conditional aggregations to segment customer behavior and tenure, uncovering early-stage churn indicators and retention opportunities.
+            </p>
+          </div>
+
+          <div class="cv-entry">
+            <div class="cv-entry-row">
+              <strong>Regional Revenue &amp; Margin Tracker</strong>
+              <span>Power BI &amp; Tableau · Operations KPI</span>
+            </div>
+            <p>
+              Built a multi-page BI report comparing monthly sales velocity against regional targets to spotlight underperforming product lines and variance drivers.
+            </p>
+          </div>
+        </section>
+
+        <section class="cv-section">
+          <h3>Certifications</h3>
+          <div class="cv-entry">
+            <div class="cv-entry-row">
+              <strong>Google Data Analytics Professional Certificate (Placeholder)</strong>
+              <span>Coursera · 2026</span>
+            </div>
+          </div>
+          <div class="cv-entry">
+            <div class="cv-entry-row">
+              <strong>SQL for Data Analysis (Placeholder)</strong>
+              <span>Platform Name · 2026</span>
+            </div>
+          </div>
+          <div class="cv-entry">
+            <div class="cv-entry-row">
+              <strong>Business Intelligence &amp; Dashboarding (Placeholder)</strong>
+              <span>Platform Name · 2026</span>
+            </div>
+          </div>
+        </section>
+      </article>
+    </div>
+  </div>
+
+  <script type="module" src="/script.js"></script>
+</body>
+</html>
