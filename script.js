@@ -196,6 +196,81 @@ document.addEventListener("keydown", (event) => {
   }
 });
 
+// Certificate Images Loader & Lightbox (reads files placed in public/certs/)
+const certModal = document.getElementById("cert-modal");
+const certModalTitle = document.getElementById("cert-modal-title");
+const certModalMeta = document.getElementById("cert-modal-meta");
+const certModalImg = document.getElementById("cert-modal-img");
+const certModalClose = document.getElementById("cert-modal-close");
+
+function openCertModal(title, meta, imgSrc) {
+  if (!certModal || !certModalTitle || !certModalMeta || !certModalImg) return;
+  certModalTitle.textContent = title;
+  certModalMeta.textContent = meta;
+  certModalImg.src = imgSrc;
+  certModalImg.alt = `${title} certificate`;
+  certModal.removeAttribute("hidden");
+  document.body.style.overflow = "hidden";
+  if (certModalClose) certModalClose.focus();
+}
+
+function closeCertModal() {
+  if (!certModal) return;
+  certModal.setAttribute("hidden", "");
+  document.body.style.overflow = "";
+}
+
+document.querySelectorAll(".cert-card").forEach((card) => {
+  const imgSrc = (card.getAttribute("data-cert-img") || "").trim();
+  if (!imgSrc) return;
+
+  const title = card.querySelector("h3")?.textContent?.trim() || "Certificate";
+  const meta = card.querySelector(".cert-meta")?.textContent?.replace(/\s+/g, " ").trim() || "Credential";
+
+  const media = document.createElement("div");
+  media.className = "cert-media";
+
+  const img = document.createElement("img");
+  img.src = imgSrc;
+  img.alt = `${title} certificate`;
+  img.loading = "lazy";
+  img.referrerPolicy = "no-referrer";
+
+  const footer = card.querySelector(".cert-footer");
+  const viewBtn = document.createElement("button");
+  viewBtn.type = "button";
+  viewBtn.className = "cert-view-btn";
+  viewBtn.innerHTML = 'View Certificate <span aria-hidden="true">→</span>';
+  viewBtn.addEventListener("click", () => openCertModal(title, meta, imgSrc));
+
+  img.addEventListener("error", () => {
+    media.remove();
+    viewBtn.remove();
+  });
+
+  media.appendChild(img);
+  card.insertBefore(media, card.firstChild);
+  if (footer) footer.appendChild(viewBtn);
+});
+
+if (certModalClose) {
+  certModalClose.addEventListener("click", closeCertModal);
+}
+
+if (certModal) {
+  certModal.addEventListener("click", (event) => {
+    if (event.target === certModal) {
+      closeCertModal();
+    }
+  });
+}
+
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape" && certModal && !certModal.hasAttribute("hidden")) {
+    closeCertModal();
+  }
+});
+
 // One-click Copy Email
 const copyBtn = document.getElementById("copy-email-btn");
 if (copyBtn) {

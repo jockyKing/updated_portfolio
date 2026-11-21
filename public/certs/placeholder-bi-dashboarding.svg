@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500" role="img" aria-label="Placeholder certificate for Business Intelligence and Dashboarding">
+  <rect width="800" height="500" fill="#171a21" />
+  <rect x="24" y="24" width="752" height="452" rx="8" fill="none" stroke="#272b35" stroke-width="2" />
+  <rect x="36" y="36" width="728" height="428" rx="4" fill="none" stroke="#60a5fa" stroke-opacity="0.28" stroke-dasharray="4 4" />
+  <text x="64" y="92" fill="#60a5fa" font-family="monospace" font-size="16" letter-spacing="2">CERTIFICATE PLACEHOLDER · 03</text>
+  <text x="64" y="168" fill="#f4f4f5" font-family="Georgia, serif" font-size="34" font-weight="600">Business Intelligence</text>
+  <text x="64" y="212" fill="#f4f4f5" font-family="Georgia, serif" font-size="34" font-weight="600">&amp; Dashboarding</text>
+  <text x="64" y="268" fill="#b4b6be" font-family="system-ui, sans-serif" font-size="18">Issued to Ace · Power BI &amp; Tableau · 2026</text>
+  <line x1="64" y1="360" x2="320" y2="360" stroke="#3c4252" stroke-width="1.5" />
+  <text x="64" y="388" fill="#8b8e98" font-family="monospace" font-size="14">Replace in public/certs/</text>
+  <circle cx="672" cy="340" r="46" fill="#20242d" stroke="#60a5fa" stroke-width="2" />
+  <path d="M654 340l12 12 24-26" fill="none" stroke="#60a5fa" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+</svg>
