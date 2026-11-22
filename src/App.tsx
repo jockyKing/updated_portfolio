@@ -11,7 +11,7 @@ import { ProjectModal } from './components/ProjectModal';
 import { ProjectsSection } from './components/ProjectsSection';
 import { ScrollTopButton } from './components/ScrollTopButton';
 import { SkillsSection } from './components/SkillsSection';
-import type { CertificationItem, ProjectItem } from './data/portfolioData';
+import { PROFILE, type CertificationItem, type ProjectItem } from './data/portfolioData';
 
 export default function App() {
   const [activeProject, setActiveProject] = useState<ProjectItem | null>(null);
@@ -48,7 +48,7 @@ export default function App() {
 
       <footer className="site-footer">
         <div className="container footer-inner">
-          <p>&copy; 2026 Ace. Data Analytics Portfolio.</p>
+          <p>&copy; {PROFILE.year} {PROFILE.brand}. Data Analytics Portfolio.</p>
         </div>
       </footer>
 
