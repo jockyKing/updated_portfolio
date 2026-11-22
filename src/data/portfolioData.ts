@@ -43,10 +43,10 @@ export interface CertificationItem {
 }
 
 export const PROFILE = {
-  brand: 'Ace',
+  brand: 'Jocky',
   eyebrow: 'Data Analytics Portfolio · Bulacan State University',
   headline: 'Turning messy data into clear, actionable decisions.',
-  lead: 'I am Ace, a data analytics student focused on cleaning raw datasets, querying patterns in SQL, and translating findings into plain-language dashboards.',
+  lead: 'I am Jocky, a data analytics student focused on cleaning raw datasets, querying patterns in SQL, and translating findings into plain-language dashboards.',
   aboutLead:
     "I'm a data analytics student at Bulacan State University who enjoys finding meaningful patterns in raw data and explaining them in plain language.",
   aboutBody:
